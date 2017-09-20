@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const c = [];
     const score = document.getElementById('score');
     let firstCard = false;
-            let scoreExtend = 0;
+    let scoreExtend = 0;
+    let firstCard_nr = 0;
 
     for (var i = 0; i <= 11; ++i) {
         c[i] = document.getElementById('card' + i);
@@ -66,15 +67,24 @@ document.addEventListener('DOMContentLoaded', function () {
         cardID.style.backgroundImage = 'url(' + image + ')';
         cardID.style.filter = 'brightness(100%)';
         cardID.style.border = '3px solid #e9b64a';
-        
-        
-    if (firstCard) {
 
-        score.innerHTML = 'Score: ' + ++scoreExtend;
-        firstCard = false;
-    } else {
-        firstCard = true;
-    }
+
+        if (firstCard) {
+            if (cards[firstCard_nr] === cards[nr]) {
+                 c[nr].style.opacity = 0;
+                 c[firstCard_nr].style.opacity = 0;
+            }else{
+                 c[nr].style.backgroundImage = 'url(/img/karta.png)';
+                 c[firstCard_nr].style.backgroundImage = 'url(/img/karta.png)';
+            }
+            
+            score.innerHTML = 'Score: ' + ++scoreExtend;
+            firstCard = false;
+           
+        } else {
+            firstCard = true;
+            firstCard_nr = nr;
+        }
 
     }
 
