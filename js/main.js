@@ -69,18 +69,20 @@ document.addEventListener('DOMContentLoaded', function () {
         cardID.style.border = '3px solid #e9b64a';
 
 
-        if (firstCard) {
+        if (firstCard && firstCard_nr !== nr) {
             if (cards[firstCard_nr] === cards[nr]) {
-                 c[nr].style.opacity = 0;
-                 c[firstCard_nr].style.opacity = 0;
-            }else{
-                 c[nr].style.backgroundImage = 'url(/img/karta.png)';
-                 c[firstCard_nr].style.backgroundImage = 'url(/img/karta.png)';
+                setTimeout(function () {
+                    c[nr].style.opacity = 0;
+                    c[firstCard_nr].style.opacity = 0;
+                }, 400);
+            } else {
+                c[nr].style.backgroundImage = 'url(/img/karta.png)';
+                c[firstCard_nr].style.backgroundImage = 'url(/img/karta.png)';
             }
-            
+
             score.innerHTML = 'Score: ' + ++scoreExtend;
             firstCard = false;
-           
+
         } else {
             firstCard = true;
             firstCard_nr = nr;
