@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'triss.png',
         'iorweth.png',
         'yen.png',
-        'gerant.png'
+        'geralt.png'
     ];
     const folderWIthImage = '/img/';
     const c = [];
