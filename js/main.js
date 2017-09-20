@@ -16,7 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
     const folderWIthImage = '/img/';
     const c = [];
-    
+    const score = document.getElementById('score');
+    let firstCard = false;
+            let scoreExtend = 0;
+
     for (var i = 0; i <= 11; ++i) {
         c[i] = document.getElementById('card' + i);
     }
@@ -58,10 +61,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function reverseCard(nr, cardID) {
-        const image = folderWIthImage+cards[nr];
+        const image = folderWIthImage + cards[nr];
 
-        cardID.style.backgroundImage = 'url('+image+')';
+        cardID.style.backgroundImage = 'url(' + image + ')';
+        cardID.style.filter = 'brightness(100%)';
+        cardID.style.border = '3px solid #e9b64a';
         
+        
+    if (firstCard) {
+
+        score.innerHTML = 'Score: ' + ++scoreExtend;
+        firstCard = false;
+    } else {
+        firstCard = true;
+    }
+
     }
 
 });
