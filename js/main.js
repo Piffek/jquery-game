@@ -14,49 +14,54 @@ document.addEventListener('DOMContentLoaded', function () {
         'yen.png',
         'gerant.png'
     ];
+    const folderWIthImage = '/img/';
     const c = [];
+    
     for (var i = 0; i <= 11; ++i) {
         c[i] = document.getElementById('card' + i);
     }
     c[0].addEventListener('click', function () {
-        reverseCard(c[0])
+        reverseCard(0, c[0])
     });
     c[1].addEventListener('click', function () {
-        reverseCard(c[1])
+        reverseCard(1, c[1])
     });
     c[2].addEventListener('click', function () {
-        reverseCard(c[2])
+        reverseCard(2, c[2])
     });
     c[3].addEventListener('click', function () {
-        reverseCard(c[3])
+        reverseCard(3, c[3])
     });
     c[4].addEventListener('click', function () {
-        reverseCard(c[4])
+        reverseCard(4, c[4])
     });
     c[5].addEventListener('click', function () {
-        reverseCard(c[5])
+        reverseCard(5, c[5])
     });
     c[6].addEventListener('click', function () {
-        reverseCard(c[6])
+        reverseCard(6, c[6])
     });
     c[7].addEventListener('click', function () {
-        reverseCard(c[7])
+        reverseCard(7, c[7])
     });
     c[8].addEventListener('click', function () {
-        reverseCard(c[8])
+        reverseCard(8, c[8])
     });
     c[9].addEventListener('click', function () {
-        reverseCard(c[9])
+        reverseCard(9, c[9])
     });
     c[10].addEventListener('click', function () {
-        reverseCard(c[10])
+        reverseCard(10, c[10])
     });
     c[11].addEventListener('click', function () {
-        reverseCard(c[11])
+        reverseCard(11, c[11])
     });
 
-    function reverseCard(cardID) {
-        console.log(cardID.id);
+    function reverseCard(nr, cardID) {
+        const image = folderWIthImage+cards[nr];
+
+        cardID.style.backgroundImage = 'url('+image+')';
+        
     }
 
 });
