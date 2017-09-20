@@ -63,21 +63,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function reverseCard(nr, cardID) {
         const image = folderWIthImage + cards[nr];
-
+        let opacityThisElement = cardID.style.opacity;
         cardID.style.backgroundImage = 'url(' + image + ')';
-        cardID.style.filter = 'brightness(100%)';
         cardID.style.border = '3px solid #e9b64a';
 
 
-        if (firstCard && firstCard_nr !== nr) {
+        if (firstCard && firstCard_nr !== nr && opacityThisElement == '') {
             if (cards[firstCard_nr] === cards[nr]) {
                 setTimeout(function () {
                     c[nr].style.opacity = 0;
                     c[firstCard_nr].style.opacity = 0;
-                }, 400);
+                }, 750);
             } else {
-                c[nr].style.backgroundImage = 'url(/img/karta.png)';
-                c[firstCard_nr].style.backgroundImage = 'url(/img/karta.png)';
+                setTimeout(function () {
+                    c[nr].style.backgroundImage = 'url(/img/karta.png)';
+                    c[firstCard_nr].style.backgroundImage = 'url(/img/karta.png)';
+                    c[nr].style.border = '3px solid blue';
+                    c[firstCard_nr].style.border = '3px solid blue';
+                }, 400);
             }
 
             score.innerHTML = 'Score: ' + ++scoreExtend;
