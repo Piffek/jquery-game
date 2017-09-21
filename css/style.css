@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.board {
+    width: 600px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+.card {
+    width: 125px;
+    height: 125px;
+    display: inline-block;
+    margin: 3px;
+    background-image: url("/img/karta.png");
+    border: 3px solid blue;
+    border-radius: 4px;
+    cursor: pointer;
+    filter: brightness(70%);
+    transition: all .3s ease-in-out;
+}
+
+.card:hover {
+    border: 3px solid #e9b64a;
+    filter: brightness(100%);
+}
+
+#score{
+    margin-top:20px;
+    letter-spacing: 5px;
+}
