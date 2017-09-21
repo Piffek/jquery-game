@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let firstCard = false;
     let scoreExtend = 0;
     let firstCard_nr = 0;
+    let pairs = 6;
 
 
     for (var i = 0; i <= 11; ++i) {
@@ -67,8 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const image = folderWIthImage + cards[nr];
         let opacityThisElement = cardID.style.opacity;
 
-
-
         if (opacityThisElement == '' && lock == false) {
             lock = true;
             cardID.style.backgroundImage = 'url(' + image + ')';
@@ -79,17 +78,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     setTimeout(function () {
                         c[nr].style.opacity = 0;
                         c[firstCard_nr].style.opacity = 0;
-                                            lock = false;
+                        lock = false;
                     }, 750);
+                    pairs--;
+                    if (pairs === 0) {
+                        alert('Brawo!');
+                    }
                 } else {
                     setTimeout(function () {
                         c[nr].style.backgroundImage = 'url(/img/karta.png)';
                         c[firstCard_nr].style.backgroundImage = 'url(/img/karta.png)';
                         c[nr].style.border = '3px solid blue';
                         c[firstCard_nr].style.border = '3px solid blue';
-                    lock = false;
+                        lock = false;
                     }, 1000);
-                   
+
                 }
 
                 score.innerHTML = 'Score: ' + ++scoreExtend;
@@ -102,8 +105,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 lock = false;
             }
         }
-
-
 
     }
 
